@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>猜数字游戏</h1>
+        <game></game>
+
+    </div>
+
+    <script>
+
+        //完成组件的创建
+        Vue.component("game",{
+            data:function(){
+                return{
+                    randomNum:Math.floor(Math.random()*20),
+                    myInput:0,
+                    reslut:''
+                }
+            },
+            template:`
+                <idv>
+                    <input v-model.number="myInput"><br>
+                    <p>{{reslut}}</p>
+                </div>
+            `,
+            beforMount:function(){
+                //创建20以内的随机整数
+                var num =Math.floor(Math.random()*20);
+                console.log(num);
+                this.randomNum = num;
+            },
+            watch:{
+                myInput:function(){
+                    if(this.myInput ==this.randomNum){
+                        this.reslut ="猜对了";
+                    }else if(this.myInput >this.randomNum){
+                        this.reslut = "猜大了";
+                    }else{
+                        this.reslut = "猜小了";
+                    }
+                }
+            }
+        })
+
+
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

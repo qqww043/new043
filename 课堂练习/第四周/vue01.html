@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id ="app">
+        <li v-if="order ===0">站在前面的</li>
+        <li v-else-if="order ===1">不上不下的</li>
+        <li v-else>在后面的</li>
+    </div>
+
+    <script>
+      let v=  new Vue({
+            el:'#app',
+            data(){
+                return{
+                    order:0
+                    
+                }
+            },
+            methods:{
+
+            },
+        })
+    </script>
+</body>
+</html>

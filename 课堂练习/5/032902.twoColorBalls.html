@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双色球</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        红球：<span v-for="(redNum,index) in  rNumArr" :key="redNum" style="color: red;">
+            {{redNum}} &nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+        蓝球：<span v-for="(blueNum,index) in bNumArr" :key="blueNum" style="color: blue;">
+            {{blueNum}}
+        </span>
+        <input type="button" @click="testRandom" value="点击生成">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                red1: ''
+                red2: ''
+
+                return {
+
+                    rNumMax: 33,
+                    rNumSize: 6,
+                    rNumArr: [],
+                    bNumMax: 12,
+                    bNumSize: 1,
+                    bNumArr: [],
+                }
+
+            },
+            methods: {
+                // 生成号码数组
+                createNumArr(numArr, numSize, numMax) {
+                    // 清空已有数组
+                    numArr.splice(0, numArr.length)
+                    while (numArr.length < numSize) {
+                        let num = this.getRandom(numMax)
+                        // 仅当生成的号码与原有号码不重复时，才加入到数组中
+                        if (numArr.indexOf(num) === -1) {
+                            numArr.push(num)
+                        }
+
+                    }
+
+                },
+                //生成随机数
+                getRandom(max) {
+                    return Math.floor(Math.random(max) * 33) + 1
+                },
+                //红区号码
+                createRed() {
+                    this.createNumArr(this.rNumArr, this.rNumSize, this.rNumMax)
+                },
+
+
+                //蓝区号码
+
+                createBlue() {
+                    this.createNumArr(this.bNumArr, this.bNumSize, this.bNumMax)
+                },
+                //测试
+                testRandom() {
+                    this.createRed()
+                    this.createBlue()
+                    console.log(this.rNumArr);
+                    console.log(this.bNumArr);
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

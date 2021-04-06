@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>school</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            {{schools[0].name}}位于：{{schools[0].location}}
+        </div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    schools: [
+                        { name: '哈佛', location: '美国' },
+                        { name: '耶鲁', location: '美国' },
+                        { name: '剑桥', location: '英国' },
+                        { name: '牛津', location: '英国' },
+                    ]
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

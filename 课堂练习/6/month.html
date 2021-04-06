@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月份</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        您输入的月份是：<input type="text" v-model="usernum" /><br>
+        &nbsp;&nbsp;{{usernum}}&nbsp;&nbsp;月，
+        有&nbsp;&nbsp;{{monthdays[usernum-1]}}&nbsp;&nbsp;天。
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    usernum: '',
+                    monthdays: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>country</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="()">
+            请输入国家代码：<input type="text" v-model="usernum">
+            代码是+{{countryList[usernum]}}的国家是{{countryLis.country}},<br>
+            它的首都是{{countryList.capital}}
+        </div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    usernum: '',
+                    countryList: [
+                        { areaCode: '1', country: '美国', capital: '华盛顿' },
+                        { areaCode: '44', country: '英国', capital: '伦敦' },
+                        { areaCode: '86', country: '中国', capital: '北京' },
+                    ]
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

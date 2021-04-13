@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸运用户</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    幸运用户为：
+    <div id="dianmin"></div>
+    <input type="button" value="点名" onclick="fn()">
+    <input type="button" value="停止" onclick="fn2()">
+
+    <script>
+        let arr = ["阿大", "阿二", "阿三", "阿四", "阿五", "阿六", "阿七", "佩奇", "保罗", "库里", "奶茶", "柠檬"]
+        let mytime = -1;
+        function fn() {
+
+            if (mytime == -1) {
+                // mytime = setInterval(function(){
+                //     let index =parseInt(Math.random()*arr.length);
+                //     document.getElementById("dianmin").innerHTML = arr[index];
+                // },30);
+                mytime = setInterval(fn1, 30);
+
+                function fn1() {
+                    let index = parseInt(Math.random() * arr.length);
+                    document.getElementById("dianmin").innerHTML = arr[index];
+                }
+            }
+        }
+
+        function fn2() {
+            clearInterval(mytime)
+            mytime = -1;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -10,11 +10,14 @@
 </head>
 
 <body>
-    <div id="app">
-        <div v-for="()">
-            请输入国家代码：<input type="text" v-model="usernum">
-            代码是+{{countryList[usernum]}}的国家是{{countryLis.country}},<br>
-            它的首都是{{countryList.capital}}
+     <div id="app">
+        请输入国家代码：<input type="text" v-model="usernum" />
+        <div v-for="cname in countryList">
+            <p v-if="usernum ==cname.areaCode">
+
+                代码是+{{cname.areaCode}}的国家是{{cname.country}},<br>
+                它的首都是{{cname.capital}}
+            </p>
         </div>
 
     </div>

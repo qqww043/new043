@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插入HTML代码</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <img src="index01.jpeg" @click="show()" alt="">
+        请点击皮卡丘的鼻子。
+        <!-- 
+            <div v-html="message"></div>
+            <input type="button" @click="show()" value="点击按钮">
+         -->
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    message: '<h1>广西科技师范学院</h1>位于来宾市'
+                }
+            },
+            methods: {
+                show() {
+                    // console.log("x,y=" + event.clientX + "," + event.clientY);
+                    // console.log("在控制台输出，您好！");
+                    if (event.clientX > 186 && event.clientX < 240 && event.clientY > 193 && event.clientY < 249) {
+                        alert("验证成功！")
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+
+</html>

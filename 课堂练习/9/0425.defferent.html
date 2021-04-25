@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找茬游戏</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span @click="pass()">
+            <img src="img1.jpg" @click="show()" alt="">
+        </span><br>
+        <p @click="pass()">点击次数为：{{num}}，分数为：{{num}}</p>
+        <!-- <button @click="add">数值：</button> -->
+        <h2>请找出图片的不同之处！</h2>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    num: 0
+                }
+            },
+            methods: {
+                pass() {
+                    if (num === 6) {
+                        alert("游戏通过！");
+                    }
+                },
+                // add: function () {
+                //     this.num++;
+                // },
+                show() {
+                    // console.log("x,y=" + event.clientX + "," + event.clientY);
+                    //右图坐标
+                    if (event.clientX > 362 && event.clientX < 429 && event.clientY > 8 && event.clientY < 55) {
+                        this.num++;
+                    } else if (event.clientX > 388 && event.clientX < 472 && event.clientY > 150 && event.clientY < 215) {
+                        this.num++;
+                    } else if (event.clientX > 644 && event.clientX < 698 && event.clientY > 183 && event.clientY < 210) {
+                        this.num++;
+                    } else if (event.clientX > 486 && event.clientX < 534 && event.clientY > 323 && event.clientY < 355) {
+                        this.num++;
+                    } else if (event.clientX > 20 && event.clientX < 95 && event.clientY > 269 && event.clientY < 310) {
+                        this.num++;
+                    } else if (event.clientX > 575 && event.clientX < 630 && event.clientY > 269 && event.clientY < 290) {
+                        this.num++;
+                    } else if (event.clientX > 195 && event.clientX < 266 && event.clientY > 9 && event.clientY < 43) {
+                        this.num++;
+                    }
+
+                    //左图坐标
+                    else if (event.clientX > 0 && event.clientX < 50 && event.clientY > 8 && event.clientY < 55) {
+                        this.num++;
+                    } else if (event.clientX > 29 && event.clientX < 110 && event.clientY > 150 && event.clientY < 215) {
+                        this.num++;
+                    } else if (event.clientX > 305 && event.clientX < 340 && event.clientY > 183 && event.clientY < 210) {
+                        this.num++;
+                    } else if (event.clientX > 129 && event.clientX < 179 && event.clientY > 323 && event.clientY < 355) {
+                        this.num++;
+                    } else if (event.clientX > 395 && event.clientX < 450 && event.clientY > 269 && event.clientY < 310) {
+                        this.num++;
+                    } else if (event.clientX > 214 && event.clientX < 242 && event.clientY > 269 && event.clientY < 290) {
+                        this.num++;
+                    } else if (event.clientX > 555 && event.clientX < 595 && event.clientY > 9 && event.clientY < 43) {
+                        this.num++;
+                    }
+
+
+                }
+
+            },
+        })
+    </script>
+</body>
+
+</html>

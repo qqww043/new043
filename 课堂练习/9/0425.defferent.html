@@ -28,11 +28,11 @@
                 }
             },
             methods: {
-                pass() {
-                    if (num === 6) {
-                        alert("游戏通过！");
-                    }
-                },
+//                 pass() {
+//                     if (num === 6) {
+//                         alert("游戏通过！");
+//                     }
+//                 },
                 // add: function () {
                 //     this.num++;
                 // },
@@ -70,6 +70,8 @@
                         this.num++;
                     } else if (event.clientX > 555 && event.clientX < 595 && event.clientY > 9 && event.clientY < 43) {
                         this.num++;
+                    }else{
+                        alert("错误！")
                     }
 
 

@@ -11,9 +11,7 @@
 
 <body>
     <div id="app">
-        <span @click="pass()">
-            <img src="img1.jpg" @click="show()" alt="">
-        </span><br>
+            <img src="img1.jpg" @click="show()" alt=""><br>
         <p >点击次数为：{{num}}，分数为：{{num}}</p>
         <!-- <button @click="add">数值：</button> -->
         <h2>请找出图片的不同之处！</h2>
@@ -22,62 +20,66 @@
     <script>
         new Vue({
             el: '#app',
-            data() {
-                return {
-                    num: 0
-                }
-            },
+           data() {
+               return{
+              num:0,
+              residue:7
+            } 
+           },
             methods: {
-//                 pass() {
-//                     if (num === 6) {
-//                         alert("游戏通过！");
-//                     }
-//                 },
-                // add: function () {
-                //     this.num++;
-                // },
+
                 show() {
                     // console.log("x,y=" + event.clientX + "," + event.clientY);
-                    //右图坐标
-                    if (event.clientX > 362 && event.clientX < 429 && event.clientY > 8 && event.clientY < 55) {
+                    //左，右图坐标
+                    if(this.residue !== 0){
+                    if (event.clientX > 362 && event.clientX < 429 && event.clientY > 8 && event.clientY < 55
+                    || event.clientX > 0 && event.clientX < 50 && event.clientY > 8 && event.clientY < 55) {
                         this.num++;
-                    } else if (event.clientX > 388 && event.clientX < 472 && event.clientY > 150 && event.clientY < 215) {
+                        this.residue--;
+                    } 
+                    else if (event.clientX > 388 && event.clientX < 472 && event.clientY > 150 && event.clientY < 215
+                    || event.clientX > 29 && event.clientX < 110 && event.clientY > 150 && event.clientY < 215) {
                         this.num++;
-                    } else if (event.clientX > 644 && event.clientX < 698 && event.clientY > 183 && event.clientY < 210) {
+                        this.residue--;
+                    } 
+                    else if (event.clientX > 644 && event.clientX < 698 && event.clientY > 183 && event.clientY < 210
+                    || event.clientX > 305 && event.clientX < 340 && event.clientY > 183 && event.clientY < 210) {
                         this.num++;
-                    } else if (event.clientX > 486 && event.clientX < 534 && event.clientY > 323 && event.clientY < 355) {
+                        this.residue--;
+                    }
+                    else if (event.clientX > 486 && event.clientX < 534 && event.clientY > 323 && event.clientY < 355
+                    || event.clientX > 129 && event.clientX < 179 && event.clientY > 323 && event.clientY < 355) {
                         this.num++;
-                    } else if (event.clientX > 20 && event.clientX < 95 && event.clientY > 269 && event.clientY < 310) {
+                        this.residue--;
+                    } else if (event.clientX > 20 && event.clientX < 95 && event.clientY > 269 && event.clientY < 310
+                    || event.clientX > 395 && event.clientX < 450 && event.clientY > 269 && event.clientY < 310) {
                         this.num++;
-                    } else if (event.clientX > 575 && event.clientX < 630 && event.clientY > 269 && event.clientY < 290) {
+                        this.residue--;
+                    }
+                    else if(event.clientX > 575 && event.clientX < 630 && event.clientY > 269 && event.clientY < 290
+                    || event.clientX > 214 && event.clientX < 242 && event.clientY > 269 && event.clientY < 290) {
                         this.num++;
-                    } else if (event.clientX > 195 && event.clientX < 266 && event.clientY > 9 && event.clientY < 43) {
+                        this.residue--;
+                    }
+                    else if(event.clientX > 195 && event.clientX < 266 && event.clientY > 9 && event.clientY < 43
+                    || event.clientX > 555 && event.clientX < 595 && event.clientY > 9 && event.clientY < 43) {
                         this.num++;
+                        this.residue--;
+                    }
+                    
+                    else {
+                            alert("错误！")
+                        }
+                    }
+                    if (this.residue === 0) {
+                        alert("游戏通关!")
                     }
 
-                    //左图坐标
-                    else if (event.clientX > 0 && event.clientX < 50 && event.clientY > 8 && event.clientY < 55) {
-                        this.num++;
-                    } else if (event.clientX > 29 && event.clientX < 110 && event.clientY > 150 && event.clientY < 215) {
-                        this.num++;
-                    } else if (event.clientX > 305 && event.clientX < 340 && event.clientY > 183 && event.clientY < 210) {
-                        this.num++;
-                    } else if (event.clientX > 129 && event.clientX < 179 && event.clientY > 323 && event.clientY < 355) {
-                        this.num++;
-                    } else if (event.clientX > 395 && event.clientX < 450 && event.clientY > 269 && event.clientY < 310) {
-                        this.num++;
-                    } else if (event.clientX > 214 && event.clientX < 242 && event.clientY > 269 && event.clientY < 290) {
-                        this.num++;
-                    } else if (event.clientX > 555 && event.clientX < 595 && event.clientY > 9 && event.clientY < 43) {
-                        this.num++;
-                    }else{
-                        alert("错误！")
-                    }
 
 
-                }
-
-            },
+                },
+               
+            }
         })
     </script>
 </body>

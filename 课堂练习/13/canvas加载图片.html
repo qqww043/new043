@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas加载图片</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" @keyup.enter="show()" value="" id="mytest">
+        <canvas id="myCanvas" width="800" height="700"></canvas>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+
+                }
+            },
+            methods: {
+                show() {
+                    canvas = document.getElementById("myCanvas")
+                    context = canvas.getContext("2d");
+                    img = new Image();
+
+                    mytest = document.getElementById("mytest").value;
+                    if (mytest == "皮卡丘") {
+                        img.src = 'img1.jpg'
+                    } else if (mytest == "杰尼龟") {
+                        img.src = '杰尼龟.jpg'
+                    } else if (mytest == "可达鸭") {
+                        img.src = '可达鸭.jpg'
+                    } else if (mytest == "喵喵") {
+                        img.src = '喵喵.png'
+                    }
+
+
+                    img.onload = function () {
+                        context.drawImage(this, 0, 0)
+
+                    }
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

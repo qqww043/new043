@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>儿童节之青蛙过河小游戏</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="800" height="800"></canvas>
+    <div id="app">
+        <input type="text" @click="show()" @keyup.enter="show()" name="" id="" value="" v-model="userString">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    userString: '',
+                    foot: ''
+                }
+            },
+            methods: {
+                show() {
+                    console.log(this.userString)
+                    // 加载背景
+                    let canvas = document.getElementById("myCanvas")
+                    let context = canvas.getContext("2d");
+                    let img_bg = new Image();
+                    img_bg.src = "./img/background.gif";
+                    img_bg.onload = function () {
+                        context.drawImage(img_bg, 0, 0)
+                    }
+
+                    // 显示青蛙
+                    let img_frog = new Image();
+                    img_frog.src = "./img/frog.gif";
+                    img_frog.onload = function () {
+                        context.drawImage(img_frog, 370, 400)
+                    }
+
+                    //条件判断
+                    if (this.userString == "hello") {
+                        this.userString = ""
+                        img_frog.onload = function () {
+                            context.drawImage(img_frog, 230, 250)
+                        }
+
+                    }
+
+                    //条件判断
+                    if (this.userString == "world") {
+                        this.userString = ""
+                        img_frog.onload = function () {
+                            context.drawImage(img_frog, 400, 185)
+                        }
+
+                    }
+
+                    //条件判断
+                    if (this.userString == "hi") {
+                        this.userString = ""
+                        img_frog.onload = function () {
+                            context.drawImage(img_frog, 350, 50)
+                        }
+
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

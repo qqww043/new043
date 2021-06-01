@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>儿童节之青蛙过河小游戏</title>
+    <title>青蛙过河小游戏</title>
     <script src="./vue.js"></script>
 </head>
 
 <body>
-    <canvas id="myCanvas" width="800" height="800"></canvas>
+    <canvas id="myCanvas" width="700" height="700"></canvas>
     <div id="app">
-        <input type="text" @click="show()" @keyup.enter="show()" name="" id="" value="" v-model="userString">
+        输入荷叶上英文：<input type="text" @click="show()" @keyup.enter="show()" name="" id="" value="" v-model="userString">
+        <p>青蛙跳跃步数为：{{foot}}，分数为：{{num}}</p>
     </div>
 
     <script>
@@ -21,11 +22,14 @@
             data() {
                 return {
                     userString: '',
-                    foot: ''
+                    foot: '',
+                    foot1:'1',
+                    num:''
                 }
             },
             methods: {
                 show() {
+                   
                     console.log(this.userString)
                     // 加载背景
                     let canvas = document.getElementById("myCanvas")
@@ -33,42 +37,56 @@
                     let img_bg = new Image();
                     img_bg.src = "./img/background.gif";
                     img_bg.onload = function () {
-                        context.drawImage(img_bg, 0, 0)
+                        context.drawImage(this, 0, 0)
                     }
 
                     // 显示青蛙
                     let img_frog = new Image();
                     img_frog.src = "./img/frog.gif";
                     img_frog.onload = function () {
-                        context.drawImage(img_frog, 370, 400)
+                        context.drawImage(this, 370, 400)
                     }
 
+                    if(this.foot1!==0){
                     //条件判断
                     if (this.userString == "hello") {
                         this.userString = ""
                         img_frog.onload = function () {
-                            context.drawImage(img_frog, 230, 250)
+                            context.drawImage(this, 230, 250)
                         }
-
+                        this.foot++;
+                        this.num++;
                     }
 
                     //条件判断
                     if (this.userString == "world") {
                         this.userString = ""
                         img_frog.onload = function () {
-                            context.drawImage(img_frog, 400, 185)
+                            context.drawImage(this, 400, 185)
                         }
+                        this.foot++;
+                        this.num++;
 
                     }
 
                     //条件判断
                     if (this.userString == "hi") {
                         this.userString = ""
+                      
+                        this.foot++;
+   
                         img_frog.onload = function () {
-                            context.drawImage(img_frog, 350, 50)
+                            context.drawImage(this, 350, a50)
                         }
-
+                        this.num++;
+                        this.foot1--;
                     }
+
+                }
+                    if(this.num ===3){
+                        alert("游戏通关啦！")
+                    }
+                    
                 }
             },
         })

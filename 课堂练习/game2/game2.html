@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <canvas id="myCanvas" width="700" height="700"></canvas>
+    <canvas id="myCanvas" width="800" height="800"></canvas>
     <div id="app">
         输入荷叶上英文：<input type="text" @click="show()" @keyup.enter="show()" name="" id="" value="" v-model="userString">
         <p>青蛙跳跃步数为：{{foot}}，分数为：{{num}}</p>
@@ -30,6 +30,7 @@
             methods: {
                 show() {
                    
+                    if(this.foot1!==0){
                     console.log(this.userString)
                     // 加载背景
                     let canvas = document.getElementById("myCanvas")
@@ -47,7 +48,7 @@
                         context.drawImage(this, 370, 400)
                     }
 
-                    if(this.foot1!==0){
+                    
                     //条件判断
                     if (this.userString == "hello") {
                         this.userString = ""
@@ -76,14 +77,14 @@
                         this.foot++;
    
                         img_frog.onload = function () {
-                            context.drawImage(this, 350, a50)
+                            context.drawImage(this, 410, 100)
                         }
                         this.num++;
                         this.foot1--;
                     }
 
                 }
-                    if(this.num ===3){
+                    if(this.num ===4){
                         alert("游戏通关啦！")
                     }
                     
